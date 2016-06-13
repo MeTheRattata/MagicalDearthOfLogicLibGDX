@@ -12,6 +12,7 @@ public class MDLGame extends Game
 	{
 		assets = new AssetManager();
 		assets.load("background.png", Texture.class);
+		assets.load("playerCharacters/cat.png", Texture.class);
 		assets.finishLoading();
 		
 		setScreen(new CombatScreen());

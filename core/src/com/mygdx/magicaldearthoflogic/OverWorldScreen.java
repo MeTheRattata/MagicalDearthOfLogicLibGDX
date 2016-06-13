@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-public class GameScreen implements Screen
+public class OverWorldScreen implements Screen
 {
 	int WORLD_WIDTH = 600;
 	int WORLD_HEIGHT = 800;
@@ -18,7 +18,7 @@ public class GameScreen implements Screen
 	private OrthographicCamera camera;
 	public Stage stage;
 	
-	public GameScreen()
+	public OverWorldScreen()
 	{
 		batch = new SpriteBatch();
 		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());

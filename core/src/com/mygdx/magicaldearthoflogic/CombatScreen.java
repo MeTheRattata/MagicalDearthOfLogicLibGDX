@@ -17,9 +17,9 @@ public class CombatScreen implements Screen
 	int WORLD_WIDTH = 672;
 	int WORLD_HEIGHT = 480;
 	
-	private SpriteBatch batch;
+	public static SpriteBatch batch;
 	private OrthographicCamera camera;
-	public Stage stage;
+	public static Stage stage;
 	
 	public CombatScreen()
 	{
@@ -27,10 +27,11 @@ public class CombatScreen implements Screen
 		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		Viewport viewport = new FitViewport(WORLD_WIDTH, WORLD_HEIGHT, camera);
         stage = new Stage(viewport, batch);
-        Image backgroundActor = new Image((Texture)(MDLGame.assets.get("background.png")));
+        Image backgroundActor = new Image((MDLGame.assets.get("background.png", Texture.class)));
         backgroundActor.setScale(4);
         
         stage.addActor(backgroundActor);
+        stage.addActor(new Entity("playerCharacters/cat"));
         
 	}
 	
@@ -38,7 +39,7 @@ public class CombatScreen implements Screen
 	{
 		Gdx.gl.glClearColor(10/255.0f, 15/255.0f, 230/255.0f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        Gdx.app.log("GameScreen FPS", (1/delta) + "");
+        //Gdx.app.log("GameScreen FPS", (1/delta) + "");
         
         stage.draw();
 	}
