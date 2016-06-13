@@ -4,33 +4,26 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-public class CombatScreen implements Screen
+public class PlayerSelectScreen implements Screen
 {
-	int WORLD_WIDTH = 672;
-	int WORLD_HEIGHT = 480;
+	int WORLD_WIDTH = 600;
+	int WORLD_HEIGHT = 800;
 	
 	private SpriteBatch batch;
 	private OrthographicCamera camera;
 	public Stage stage;
 	
-	public CombatScreen()
+	public PlayerSelectScreen()
 	{
 		batch = new SpriteBatch();
 		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		Viewport viewport = new FitViewport(WORLD_WIDTH, WORLD_HEIGHT, camera);
         stage = new Stage(viewport, batch);
-        Image backgroundActor = new Image((Texture)(MDLGame.assets.get("background.png")));
-        backgroundActor.setScale(4);
-        
-        stage.addActor(backgroundActor);
         
 	}
 	
@@ -39,8 +32,6 @@ public class CombatScreen implements Screen
 		Gdx.gl.glClearColor(10/255.0f, 15/255.0f, 230/255.0f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         Gdx.app.log("GameScreen FPS", (1/delta) + "");
-        
-        stage.draw();
 	}
 	public void show() {}
 	public void resize(int width, int height) {}
