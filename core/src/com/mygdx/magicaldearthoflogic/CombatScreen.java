@@ -31,7 +31,7 @@ public class CombatScreen implements Screen
         backgroundActor.setScale(4);
         
         stage.addActor(backgroundActor);
-        stage.addActor(new Entity("playerCharacters/cat"));
+        stage.addActor(new Entity("wizardSheet"));
         
 	}
 	
