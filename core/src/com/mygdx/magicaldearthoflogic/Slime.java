@@ -4,12 +4,23 @@ public class Slime extends Entity
 {
 	int size;
 	
-	public Slime()
+	public Slime(int newSize)
 	{
-		super("slimeSmall");
-		size = (int)(Math.random()*3) + 1;
-		updateImage("slime" + getSizeString(size));
+		super(getSizeString(newSize) + "Slime", (int) (Math.random() * 672), (int) (Math.random() * 480), assignHealth(newSize));
+		size = newSize;
 		attackPower = size * -5;
+		maxHealth = assignHealth(size);
+		health = maxHealth;
+	}
+	
+	public Slime(int newSize, int x, int y)
+	{
+		super(getSizeString(newSize) + "Slime", x, y, assignHealth(newSize));
+		setPosition(x,y);
+		size = newSize;
+		attackPower = size * -5;
+		maxHealth = assignHealth(size);
+		health = maxHealth;
 	}
 	/**
 	 * Returns a string based on the slime's size
@@ -18,12 +29,27 @@ public class Slime extends Entity
 	public static String getSizeString(int newSize)
 	{
 		if(newSize == 1)
-			return "Small";
+			return "small";
 		else if(newSize == 2)
-			return "Medium";
+			return "medium";
 		else if(newSize == 3)
-			return "Large";
+			return "large";
 		return "";
+	}
+	/**
+	 * Assign max health based on size
+	 * @param size: the size of the slime
+	 * @return: max health
+	 */
+	private static int assignHealth(int size)
+	{
+		if(size == 1)
+			return 50;
+		else if(size == 2)
+			return 75;
+		else if(size == 3)
+			return 100;
+		return -1;
 	}
 	/**
 	 * Decrements health based on the damage taken, then returns a boolean of whether the Entity has died or not

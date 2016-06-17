@@ -31,7 +31,12 @@ public class CombatScreen implements Screen
         backgroundActor.setScale(4);
         
         stage.addActor(backgroundActor);
-        stage.addActor(new Entity("wizard"));
+        for(int i = 0; i < 10; i++)
+        {
+        	int size = (int)(Math.random()*3) + 1;
+        	System.out.print(size);
+        	stage.addActor(new Slime(size));
+        }
         
 	}
 	
